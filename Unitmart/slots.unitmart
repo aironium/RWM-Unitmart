@@ -1,0 +1,114 @@
+
+[template_slots]
+x: ${slotX}
+y: ${slotY}
+onCreateSpawnUnitOf: unitmart_slot
+canBeAttackedAndDamaged: false
+setDrawLayerOnTop: true
+isUnselectable: false
+
+[attachment_1]
+@copyFromSection: template_slots
+@define slotX: -120
+@define slotY: -108
+
+[attachment_2]
+@copyFromSection: template_slots
+@define slotX: -61
+@define slotY: -108
+
+[attachment_3]
+@copyFromSection: template_slots
+@define slotX: -1
+@define slotY: -108
+
+[attachment_4]
+@copyFromSection: template_slots
+@define slotX: 59
+@define slotY: -108
+
+[attachment_5]
+@copyFromSection: template_slots
+@define slotX: 119
+@define slotY: -108
+
+[attachment_6]
+@copyFromSection: template_slots
+@define slotX: -120
+@define slotY: -168
+
+[attachment_7]
+@copyFromSection: template_slots
+@define slotX: -61
+@define slotY: -168
+
+[attachment_8]
+@copyFromSection: template_slots
+@define slotX: -1
+@define slotY: -168
+
+[attachment_9]
+@copyFromSection: template_slots
+@define slotX: 59
+@define slotY: -168
+
+[attachment_10]
+@copyFromSection: template_slots
+@define slotX: 119
+@define slotY: -168
+
+[core]
+@memory parcel1:unit
+@memory parcel2:unit
+@memory parcel3:unit
+@memory parcel4:unit
+@memory parcel5:unit
+@memory parcel6:unit
+@memory parcel7:unit
+@memory parcel8:unit
+@memory parcel9:unit
+@memory parcel10:unit
+
+[template_saveToMem]
+autoTrigger: if memory.parcel${slot} != self.attachment(slot=${slot})
+setUnitMemory: parcel${slot} = self.attachment(slot=${slot})
+
+[hiddenAction_setParcel1]
+@copyFromSection: template_saveToMem
+@define slot: 1
+
+[hiddenAction_setParcel2]
+@copyFromSection: template_saveToMem
+@define slot: 2
+
+[hiddenAction_setParcel3]
+@copyFromSection: template_saveToMem
+@define slot: 3
+
+[hiddenAction_setParcel4]
+@copyFromSection: template_saveToMem
+@define slot: 4
+
+[hiddenAction_setParcel5]
+@copyFromSection: template_saveToMem
+@define slot: 5
+
+[hiddenAction_setParcel6]
+@copyFromSection: template_saveToMem
+@define slot: 6
+
+[hiddenAction_setParcel7]
+@copyFromSection: template_saveToMem
+@define slot: 7
+
+[hiddenAction_setParcel8]
+@copyFromSection: template_saveToMem
+@define slot: 8
+
+[hiddenAction_setParcel9]
+@copyFromSection: template_saveToMem
+@define slot: 9
+
+[hiddenAction_setParcel10]
+@copyFromSection: template_saveToMem
+@define slot: 10

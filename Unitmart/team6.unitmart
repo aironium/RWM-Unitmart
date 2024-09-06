@@ -1,0 +1,91 @@
+
+[template_parcelsT6]
+isVisible: if memory.selectedTeam == 6 and memory.martServer.readUnitMemory(name="team6", type="unit").teamName == self.teamName
+pos: ${parcelSlot + 70}
+#isActive: false
+isLocked: if self.resource.credits < memory.previewParcel_${parcelSlot}.readUnitMemory(name="totalPrice", type="number")
+isLockedMessage: Not Enough Credits
+isLockedAlt: if memory.previewParcel_${parcelSlot}.transportingCount() < 1
+isLockedAltMessage: Parcel is empty
+addResources: hp = 0
+addResourcesWithLogic: credits = memory.previewParcel_${parcelSlot}.readUnitMemory(name="totalPrice", type="number") * -1
+#textAddUnitName: unitref self.memory.previewParcel_${parcelSlot}
+unitShownInUI: unitmart_slot
+description: """
+Team [%{memory.selectedTeam}]\n
+Price: $%{memory.previewParcel_${parcelSlot}.readUnitMemory(name="totalPrice", type="number")}\n\n
+Contents:\n
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=1) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=1), null)}] \n 
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=2) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=2), null)}] \n 
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=3) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=3), null)}] \n 
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=4) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=4), null)}] \n
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=5) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=5), null)}] \n 
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=6) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=6), null)}] \n 
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=7) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=7), null)}] \n 
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=8) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=8), null)}] \n
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=9) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=9), null)}] \n
+[%{select(memory.previewParcel_${parcelSlot}.attachment(slot=10) != nullUnit, memory.previewParcel_${parcelSlot}.attachment(slot=10), null)}]
+"""
+
+text: Parcel ${parcelSlot}
+buildSpeed: 15s
+canPlayerCancel: true 
+allowMultipleInQueue: false
+sendMessageTo: memory.previewParcel_${parcelSlot}
+sendMessageWithData: customer=self
+sendMessageWithTags: onlineDelivery
+
+[action_parcelT6S1]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 1
+
+[action_parcelT6S2]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 2
+
+[action_parcelT6S3]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 3
+
+[action_parcelT6S4]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 4
+
+[action_parcelT6S5]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 5
+
+[action_parcelT6S6]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 6
+
+[action_parcelT6S7]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 7
+
+[action_parcelT6S8]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 8
+
+[action_parcelT6S9]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 9
+
+[action_parcelT6S10]
+@copyFromSection: template_parcelsT6
+@define parcelSlot: 10
+
+[hiddenAction_previewRefreshT6]
+requireConditional: if memory.selectedTeam == 6
+setUnitMemory: """
+previewParcel_1 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel1", type="unit"),
+previewParcel_2 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel2", type="unit"),
+previewParcel_3 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel3", type="unit"),
+previewParcel_4 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel4", type="unit"),
+previewParcel_5 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel5", type="unit"),
+previewParcel_6 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel6", type="unit"),
+previewParcel_7 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel7", type="unit"),
+previewParcel_8 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel8", type="unit"),
+previewParcel_9 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel9", type="unit"),
+previewParcel_10 = memory.martServer.readUnitMemory(name="team6", type="unit").readUnitMemory(name="parcel10", type="unit")
+"""

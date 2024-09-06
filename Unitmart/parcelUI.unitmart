@@ -1,0 +1,32 @@
+[core]
+@memory previewParcel_1:unit
+@memory previewParcel_2:unit
+@memory previewParcel_3:unit
+@memory previewParcel_4:unit
+@memory previewParcel_5:unit
+@memory previewParcel_6:unit
+@memory previewParcel_7:unit
+@memory previewParcel_8:unit
+@memory previewParcel_9:unit
+@memory previewParcel_10:unit
+
+[action_selectTeam]
+text: Team Selected [%{memory.selectedTeam}]
+description: Click to change team preview. Parcel list might not be updated, therefore cycle again to refresh them.
+setUnitMemory: selectedTeam = select(memory.selectedTeam < 10, memory.selectedTeam + 1, 0)
+autoTrigger: if memory.selectedTeam == self.teamId or memory.selectedTeam > 9
+buildSpeed: 0.5s 
+allowMultipleInQueue: false
+price: 0 
+pos: 0.2
+alsoTriggerAction: previewRefreshT0, previewRefreshT1, previewRefreshT2, previewRefreshT3, previewRefreshT4, previewRefreshT5, previewRefreshT6, previewRefreshT7, previewRefreshT8, previewRefreshT9
+
+[core]
+@memory reftime:number
+updateUnitMemory: reftime = select(memory.reftime < 5, memory.reftime + 1, 0)
+
+[hiddenAction_refresh]
+autoTrigger: if memory.reftime == 5
+alsoTriggerAction: previewRefreshT0, previewRefreshT1, previewRefreshT2, previewRefreshT3, previewRefreshT4, previewRefreshT5, previewRefreshT6, previewRefreshT7, previewRefreshT8, previewRefreshT9
+debugMessage: refresh
+

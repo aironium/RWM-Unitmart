@@ -1,0 +1,10 @@
+[mod]
+title: StonksCo. Unit Mart
+
+description: Sell your units to your allies! [https://discord.gg/RqkMJXt]
+
+
+tags: starting-units, units, experimentals, spaghetti
+
+minVersion: 1.15
+#thumbnail: thumb.jpg

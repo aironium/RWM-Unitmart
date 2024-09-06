@@ -1,0 +1,105 @@
+[template_fans]
+x: ${fanX}
+y: ${fanY}
+image_end: fan.png
+spinRate: -8
+drawOverBody: true
+
+[arm_1]
+@copyFromSection: template_fans
+@define fanX: 110
+@define fanY: 53
+
+[arm_2]
+@copyFromSection: template_fans
+@define fanX: 110
+@define fanY: 95
+
+
+[template_lamp]
+image: lamp.png
+#isVisible: true
+imageScale: 1.0125
+isVisible: if self.attachment(slot=${lampSlot}).transportingCount() > 0
+xOffsetRelative: ${lampX}
+yOffsetRelative: ${lampY}
+
+[decal_lamp1]
+@copyFromSection: template_lamp
+@define lampX: -116
+@define lampY: 7
+@define lampSlot: 1
+
+[decal_lamp2]
+@copyFromSection: template_lamp
+@define lampX: -75
+@define lampY: 7
+@define lampSlot: 2
+
+[decal_lamp3]
+@copyFromSection: template_lamp
+@define lampX: -34
+@define lampY: 7
+@define lampSlot: 3
+
+[decal_lamp4]
+@copyFromSection: template_lamp
+@define lampX: 7
+@define lampY: 7
+@define lampSlot: 4
+
+[decal_lamp5]
+@copyFromSection: template_lamp
+@define lampX: 48
+@define lampY: 7
+@define lampSlot: 5
+
+[decal_lamp6]
+@copyFromSection: template_lamp
+@define lampX: -116
+@define lampY: -35
+@define lampSlot: 6
+
+[decal_lamp7]
+@copyFromSection: template_lamp
+@define lampX: -75
+@define lampY: -35
+@define lampSlot: 7
+
+[decal_lamp8]
+@copyFromSection: template_lamp
+@define lampX: -34
+@define lampY: -35
+@define lampSlot: 8
+
+[decal_lamp9]
+@copyFromSection: template_lamp
+@define lampX: 7
+@define lampY: -35
+@define lampSlot: 9
+
+[decal_lamp10]
+@copyFromSection: template_lamp
+@define lampX: 48
+@define lampY: -35
+@define lampSlot: 10
+
+[decal_dropzone]
+drawLineTo: self 
+basePosition: memory.dropzone
+#color: #00ff00
+lineWidth: 3
+image: mark.png
+onlyWhileAlive: true
+onlyWhenSelectedByOwnPlayer: true
+alwaysStartDirAtZero: true
+teamColors: false
+layer: beforeBody
+
+[decal_droppreview]
+layer: inactive
+image: mark.png
+alwaysStartDirAtZero: true
+teamColors: false
+#drawLineTo: self 
+lineWidth: 3
